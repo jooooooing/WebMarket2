@@ -37,7 +37,6 @@
 			%>
 			현재 접속 시각 : <%= format.format(now) %>
 
-			git test
 		</div>
 	</div>
 
