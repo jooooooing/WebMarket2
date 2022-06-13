@@ -37,7 +37,9 @@
 			%>
 			현재 접속 시각 : <%= format.format(now) %>
 
-		</div>
+			<%			
+			%>
+			</div>
 	</div>
 
 	<footer class="container">
@@ -46,4 +48,5 @@
 
 </body>
 </html>
+
 
