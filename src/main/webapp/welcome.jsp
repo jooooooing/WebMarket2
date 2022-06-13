@@ -11,13 +11,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand navbar-dark bg-dark">
-		<div class="contianer">
-			<div class="navbar-header">
-				<a href="./welcome.jsp" class="navbar-brand">Home</a>
-			</div>
-		</div>
-	</nav>
+
+	<jsp:include page ="menu.jsp"></jsp:include>
 	
 	<!-- jumbotron -->
 	<div class="p-5 bg-primary text-white">
@@ -42,9 +37,7 @@
 			</div>
 	</div>
 
-	<footer class="container">
-		<p>&copy; WebMarket</p>
-	</footer>
+	<jsp:include page ="footer.jsp"></jsp:include>
 
 </body>
 </html>
