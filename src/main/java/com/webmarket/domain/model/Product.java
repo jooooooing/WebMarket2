@@ -11,23 +11,6 @@ public class Product {
 	//4. 무지성 toStirng()
 	//5. 필요하면 equals / hashCode 재정의(오버라이드)
 	
-	public static void main(String[] args) {
-		Product product = new Product("33", "33", 11);
-		System.out.println(product);
-		
-		Product product2 = new Product("33", "33", 11);
-		System.out.println(product2);
-		
-		System.out.println(product == product2);
-		
-		Object object = new Product("33", "33", 11);
-		
-		System.out.println(product.equals(product2));
-		System.out.println(product.hashCode() == product2.hashCode());
-		System.out.println(product == product2);
-		
-	}
-	
 	private String id;
 	private String name;
 	private int unitPrice;
