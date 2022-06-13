@@ -10,23 +10,38 @@ import com.webmarket.domain.model.Product;
 //다형성
 public class ProductRepository {
 	
-	public static void main(String[] args) {
+	private List<Product> products = new ArrayList<>();
+	
+	public ProductRepository() {
+		Product phone = new Product("P1234", "iPhone 6s", 800000);
+		phone.setDescription("4.7-inch, 1334*750 Retina HD display");
+		phone.setCategory("Smart Phone");
+		phone.setManufacturer("Apple");
+		phone.setUnitsInStock(1000);
+		phone.setCondition("New");
 		
-		// 삽입, 삭제가 빈번할 때 항상 동일 성능, but ArrayList보다 검색이 느려
-		// 메모리 조금 더 많이 먹어
-		List<Product> products = new LinkedList<>();
+		Product notebook = new Product("P1235", "LG PC Gram", 1500000);
+		notebook.setDescription("13.3-inch, IPS LED display, 5rd Generation");
+		notebook.setCategory("Notebook");
+		notebook.setManufacturer("LG");
+		notebook.setUnitsInStock(1000);
+		notebook.setCondition("Refubished");
 		
-		// 크기가 커질 수록 삽입, 삭제가 느려짐. 내부적으로는 배열이라 성능이 일단 빨라
-		List<Product> products2 = new ArrayList<>();	
+		Product tablet = new Product("P1236", "Galaxy Tab S", 900000);
+		tablet.setDescription("212.8*125.6*6.6mm, Super AMOLED display");
+		tablet.setCategory("Tablet");
+		tablet.setManufacturer("Samsung");
+		tablet.setUnitsInStock(1000);
+		tablet.setCondition("Old");
 		
-		sort(products);
-		sort(products2);
-		
-		
+		products.add(phone);
+		products.add(notebook);
+		products.add(tablet);
 	}
 	
-	public static List<Product> sort(List<Product> products) {
-		//정렬...
-		return new ArrayList<>();
+	
+	
+	public List<Product> getAllProducts() {
+		return products;
 	}
 }
