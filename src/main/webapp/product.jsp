@@ -4,8 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:useBean id="repository"
-	class="com.webmarket.data.ProductRepository" scope="session"></jsp:useBean>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -26,7 +24,10 @@
 		</div>
 	</div>
 
-	<% String id=request.getParameter("id"); Product product= repository.getProductById(id); %>
+	<%
+	ProductRepository repository = ProductRepository.getInstance();
+	String id=request.getParameter("id"); 
+	Product product = repository.getProductById(id); %>
 
 	<div class="container">
 		<div class="row">
@@ -34,7 +35,7 @@
 				<h3><%=product.getName()%></h3>
 				<p><%=product.getDescription()%></p>
 				<p>
-					<b>상품코드 : </b><span class="badge bg-danger"></span>
+					<b>상품코드 : </b><span class="badge bg-danger"><%=product.getId()%></span>
 				</p>
 				<p>
 					<b>제조사 : </b><%=product.getManufacturer()%></p>
