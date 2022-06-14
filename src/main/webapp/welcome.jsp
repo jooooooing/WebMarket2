@@ -32,7 +32,10 @@
 			%>
 			현재 접속 시각 : <%= format.format(now) %>
 
-			<%			
+			<%
+
+			session.setAttribute("name", "이주현");
+			session.setAttribute("age", 32);
 			%>
 			</div>
 	</div>
