@@ -2,13 +2,15 @@ package com.webmarket.domain.repository;
 
 import java.util.List;
 
+import com.webmarket.data.ProductRepositoryDbImpl;
 import com.webmarket.data.ProductRepositoryImpl;
+import com.webmarket.data.dao.MySqlProductDaoImpl;
 import com.webmarket.domain.model.Product;
 
 public interface ProductRepository {
 
 	public static ProductRepository getInstance() {
-		return ProductRepositoryImpl.getInstance();
+		return new ProductRepositoryDbImpl(new MySqlProductDaoImpl());
 	}
 	
 	
