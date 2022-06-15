@@ -1,5 +1,5 @@
+<%@page import="com.webmarket.domain.repository.ProductRepository"%>
 <%@page import="com.webmarket.domain.model.Product"%>
-<%@page import="com.webmarket.data.ProductRepository" %>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -26,8 +26,9 @@
 
 	<%
 	ProductRepository repository = ProductRepository.getInstance();
-	String id=request.getParameter("id"); 
-	Product product = repository.getProductById(id); %>
+	String id = request.getParameter("id");
+	Product product = repository.getProductById(id);
+	%>
 
 	<div class="container">
 		<div class="row">
@@ -43,10 +44,10 @@
 					<b>분류 : </b><%=product.getCategory()%></p>
 				<p>
 					<b>재고 수 : </b><%=product.getUnitsInStock()%></p>
-					
+
 				<p>
-                    <%=product.getUnitPrice()%>원
-                </p>	
+					<%=product.getUnitPrice()%>원
+				</p>
 				<p>
 					<a href=""></a>
 				</p>

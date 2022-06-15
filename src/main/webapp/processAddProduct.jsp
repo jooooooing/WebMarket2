@@ -1,9 +1,8 @@
+<%@page import="com.webmarket.domain.repository.ProductRepository"%>
 <%@page import="com.webmarket.domain.model.Product"%>
-<%@page import="com.webmarket.data.ProductRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-
 request.setCharacterEncoding("UTF-8");
 //post로 넘어온 것
 String productId = request.getParameter("productId");
@@ -27,6 +26,4 @@ product.setCondition(condition);
 repository.addProduct(product);
 
 response.sendRedirect("products.jsp");
-
-
 %>
