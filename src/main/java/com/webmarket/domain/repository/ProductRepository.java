@@ -10,6 +10,7 @@ public interface ProductRepository {
 
 	public static ProductRepository getInstance() {
 		return new ProductRepositoryDbImpl(new MySqlProductDaoImpl());
+//		return new ProductRepositoryImpl.getInstance();
 	}
 	
 	

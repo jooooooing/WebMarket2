@@ -12,6 +12,8 @@ import java.util.List;
 import com.webmarket.domain.model.Product;
 
 public class MySqlProductDaoImpl implements ProductDao {
+//	private final static String TABLE_NAME = "product";
+//	private final static String COMLUMN_ID = "p_id";
 
 	public MySqlProductDaoImpl() {
 		try {
@@ -30,7 +32,7 @@ public class MySqlProductDaoImpl implements ProductDao {
 				Statement stmt = conn.createStatement();) {
 			try (ResultSet rs = stmt.executeQuery(sql)) {
 				while (rs.next()) {
-					String id = rs.getString("p_id");
+					String id = rs.getString(COLUMN_ID);
 					String name = rs.getString("p_name");
 					int unitPrice = rs.getInt("p_unitPrice");
 					String description = rs.getString("p_description");
@@ -79,11 +81,36 @@ public class MySqlProductDaoImpl implements ProductDao {
 
 	@Override
 	public void update(Product product) {
+		String sql = "UPDATE ? SET p_name=?, p_unitPrice=?, p_description=?, p_category=?, p_manufacturer=?, p_unitsInStock=?, p_condition=?";
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.23.102:3306/kopoctc", "root", "koposw31");
+				PreparedStatement stmt = conn.prepareStatement(sql);) {
+			stmt.setString(1, TABLE_NAME);
+			stmt.setString(2, product.getName());
+			stmt.setInt(3, product.getUnitPrice());
+			stmt.setString(4, product.getDescription());
+			stmt.setString(5, product.getCategory());
+			stmt.setString(6, product.getManufacturer());			
+			stmt.setLong(7, product.getUnitsInStock());			
+			stmt.setString(8, product.getCondition());
+			stmt.executeUpdate();			
+		} catch (SQLException e) {
+			throw new IllegalStateException("insert 실패" + e.getMessage());
+		}
+
 
 	}
 
 	@Override
 	public void delete(Product product) {
+		String sql = "DELETE FROM ? WHERE p_id=?";
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.23.102:3306/kopoctc", "root", "koposw31");
+				PreparedStatement stmt = conn.prepareStatement(sql);) {
+			stmt.setString(1, TABLE_NAME);
+			stmt.setString(2, product.getId());
+			stmt.executeUpdate();			
+		} catch (SQLException e) {
+			throw new IllegalStateException("insert 실패" + e.getMessage());
+		}
 
 	}
 
